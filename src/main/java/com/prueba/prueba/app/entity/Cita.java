@@ -34,7 +34,8 @@ public class Cita {
     @JoinColumn(name = "consultorio_id", referencedColumnName = "id")
     private Consultorio consultorio;
 
-    public Cita() {
+    @PrePersist
+    void setHorarioFinComsultaAutomatico() {
         this.horarioFinComsulta = horarioConsulta.plusHours(1);
     }
 
